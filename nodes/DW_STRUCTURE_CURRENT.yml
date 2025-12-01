@@ -1,0 +1,55 @@
+fileVersion: 1
+id: 8d2c0b0c-4e32-4545-97e3-3b1a20c58e0a
+name: DW_STRUCTURE_CURRENT
+operation:
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f1a2b3c4-d5e6-4f7a-8b9c-0d1e2f3a4b5c
+          stepCounter: 8d2c0b0c-4e32-4545-97e3-3b1a20c58e0a
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_STRUCTURE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c8b7a6d-5e4f-4a3b-2c1d-0e9f8a7b6c5d
+          stepCounter: 8d2c0b0c-4e32-4545-97e3-3b1a20c58e0a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: DEPARTMENT_CODE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_STRUCTURE_CURRENT
+  overrideSQL: false
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,74 @@
+fileVersion: 1
+id: 11f7a2b9-e4d3-4f90-a614-7299a9103e68
+name: DW_SOURCE_SYSTEM
+operation:
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63b4f53-23c2-48f4-a039-3d84422e1b02
+          stepCounter: 11f7a2b9-e4d3-4f90-a614-7299a9103e68
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3262d1d0-b3b3-4f10-91cd-40a2322384c3
+          stepCounter: 11f7a2b9-e4d3-4f90-a614-7299a9103e68
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b5c43d7c-3f2d-4d2b-8a8b-4c4d5a9c4b72
+          stepCounter: 11f7a2b9-e4d3-4f90-a614-7299a9103e68
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: AGENCY_COMPANY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: DW_SOURCE_SYSTEM
+  overrideSQL: false
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
