@@ -1,0 +1,256 @@
+fileVersion: 1
+id: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+name: STG_TMP_CLIENT_BENCHMARKING_PROGRAM_VALUE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_CLIENT_BENCHMARKING_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f9f2b1d-064b-4b15-99d7-832f9c7e3f81
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.dw_client_benchmarking_client_id
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c2d3e4f5-a6b7-4c8d-9e0f-1a2b3c4d5e6f
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7a8c3d9f-1e2a-4b0c-8d1e-3f5a7b9c4d0f
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.dw_client_benchmarking_client_program_id
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3e4f5a6-b7c8-4d9e-0f1a-2b3c4d5e6f7a
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b9d4e0a-2f3b-4c1d-9e2f-4a6b8c0d5e1a
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.dw_client_id
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e4f5a6b7-c8d9-4e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: CLIENT_BENCHMARKING_PROGRAM_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9c0e5f1b-3a4c-4d2e-a03a-5b7c9d1e6f2b
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.client_benchmarking_program_type_id
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5a6b7c8-d9e0-4f1a-2b3c-4d5e6f7a8b9c
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMERIC(38,0)
+        description: ""
+        name: PRIMARY_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a1d26a2c-4b5d-4e3f-b14b-6c8d0e2f7a3c
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.primary_limit
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 06b7c8d9-e0f1-4a2b-3c4d-5e6f7a8b9c0d
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMERIC(38,0)
+        description: ""
+        name: PRIMARY_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b2e37b3d-5c6e-4f4a-c25c-7d9e1f3a8b4d
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.primary_premium
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 17c8d9e0-f1a2-4b3c-4d5e-6f7a8b9c0d1e
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMERIC(38,0)
+        description: ""
+        name: PRIMARY_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c3f48c4e-6d7f-4a5b-d36d-8e0f2a4b9c5e
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.primary_sir_retention
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 28d9e0f1-a2b3-4c4d-5e6f-7a8b9c0d1e2f
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMERIC(38,0)
+        description: ""
+        name: AGGREGATE_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d4a59d5f-7e8a-4b6c-e47e-9f1a3b5ca6f
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.aggregate_limit
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 39e0f1a2-b3c4-4d5e-6f7a-8b9c0d1e2f30
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMERIC(38,0)
+        description: ""
+        name: AGGREGATE_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e5b60e6a-8f9b-4c7d-f58f-0a2b4c6d1b7a
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.aggregate_premium
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4a0f1a2b-3c4d-4e5f-7a8b-9c0d1e2f3041
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: NUMERIC(38,0)
+        description: ""
+        name: AGGREGATE_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f6c71f7b-90ac-4d8e-a69a-1b3c5d7e2c8b
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.aggregate_sir_retention
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5b1a2b3c-4d5e-4f6a-8b9c-0d1e2f304152
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 07d8208c-a1bd-4e9f-b70b-2c4d6e8f3d9c
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.source_system_policy_id
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c2b3c4d-5e6f-4a7b-9c0d-1e2f30415263
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: VARCHAR(255)
+        description: ""
+        name: PROGRAM_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9e0f1a2b-3c4d-4e5f-9a0b-1c2d3e4f5a6b
+                stepCounter: 56c4d32e-7b1a-4f89-8a5e-9f3d6c7b8a1d
+            transform: pt.program_type
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7d3c4d5e-6f7a-4b8c-0d1e-2f3041526374
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_STRUCTURE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 18e9319d-b2ce-4fa0-c81c-3d5e7f9a4ea
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.dw_structure_id
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8e4d5e6f-7a8b-4c9d-1e2f-304152637485
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_COMPANY_ID_PRIMARY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 29f042ae-c3df-40b1-d92d-4e6f80ab5fb
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.dw_company_id_primary
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9f5e6f7a-8b9c-4d0e-2f30-415263748596
+          stepCounter: 4a6b7c8d-9e0f-4a1b-8c9d-2e3f4a5b6c7d
+        config: {}
+        dataType: INT
+        description: ""
+        name: DW_COMPANY_ID_AGGREGATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a0153bf-d4e0-41c2-ea3e-5f7091bc60c
+                stepCounter: 61e0503e-432d-4d7a-b103-e8d1c97a8e2b
+            transform: cbcp.dw_company_id_aggregate
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM: cbcp
+          CLIENT_BENCHMARKING_PROGRAM_TYPE: pt
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM
+          - locationName: DBSHIFT
+            nodeName: CLIENT_BENCHMARKING_PROGRAM_TYPE
+        join:
+          joinCondition: |-
+            FROM {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM') }} cbcp
+            INNER JOIN {{ ref('DBSHIFT', 'CLIENT_BENCHMARKING_PROGRAM_TYPE') }} pt ON cbcp.client_benchmarking_program_type_id = pt.client_benchmarking_program_type_id
+            WHERE cbcp.dw_date_deleted IS NULL
+        name: STG_TMP_CLIENT_BENCHMARKING_PROGRAM_VALUE
+        noLinkRefs: []
+  name: STG_TMP_CLIENT_BENCHMARKING_PROGRAM_VALUE
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
