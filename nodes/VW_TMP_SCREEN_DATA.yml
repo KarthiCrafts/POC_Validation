@@ -1,0 +1,197 @@
+fileVersion: 1
+id: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+name: VW_TMP_SCREEN_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ALLIANT_DW_STAGE
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5a6b7c8-9d0e-4f1a-b2c3-d4e5f6a7b8c9
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQENTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68ed8612-248e-458e-8e2f-66b5045672f5
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.UNIQENTITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0a1b2c3d-4e5f-4a6b-7c8d-9e0f1a2b3c4d
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQPOLICY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 79dd7703-359f-469f-9f30-77c615678306
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.UNIQPOLICY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b2c3d4e-5f6a-4b7c-8d9e-0f1a2b3c4d5e
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQLINE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9bba59e5-57b1-48b1-b152-99e83789a528
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.UNIQLINE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c3d4e5f-6a7b-4c8d-9e0f-1a2b3c4d5e6f
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POLICYNUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bd9c1b2d-7af3-4af3-d3fa-ae0abfbeea9b
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.POLICYNUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3d4e5f6a-7b8c-4d9e-0f1a-2b3c4d5e6f7a
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CDPOLICYLINETYPECODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 133cd16d-df39-4039-39da-1160bf012da0
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.CDPOLICYLINETYPECODE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4e5f6a7b-8c9d-4e0f-1a2b-3c4d5e6f7a8b
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: SCREENDATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ee550efa-a806-4d06-06a7-ee550c3df27d
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.SCREENDATA
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5f6a7b8c-9d0e-4f1a-2b3c-4d5e6f7a8b9c
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQCUSTOMFORMSCREEN
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ff44f00b-b917-4e17-17b8-ff44fd4e038e
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.UNIQCUSTOMFORMSCREEN
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a7b8c9d-0e1f-4a2b-3c4d-5e6f7a8b9c0d
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: UNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0033e11c-ca28-4f28-28c9-0033ec5f149f
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.UNIQCUSTOMFORMMAP
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b8c9d0e-1f2a-4b3c-4d5e-6f7a8b9c0d1e
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: LINETYPEUNIQCUSTOMFORMMAP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1122d22d-db39-4039-39da-1122da6025a0
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: b.LINETYPEUNIQCUSTOMFORMMAP
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c9d0e1f-2a3b-4c4d-5e6f-7a8b9c0d1e2f
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR(250)
+        description: ""
+        name: FIELD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ee550efa-a806-4d06-06a7-ee550c3df27d
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: XMLGET(C.VALUE, '@Name'):"$"::VARCHAR(250)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d0e1f2a-3b4c-4d5e-6f7a-8b9c0d1e2f3a
+          stepCounter: e4b5c6d7-1a2b-4c3d-8e4f-5a6b7c8d9e0f
+        config: {}
+        dataType: VARCHAR(250)
+        description: ""
+        name: FIELD_DATA
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ee550efa-a806-4d06-06a7-ee550c3df27d
+                stepCounter: 5e63c0a1-7c58-4c17-91a1-3e0f4616231f
+            transform: XMLGET(C.VALUE, '@Data'):"$"::VARCHAR(250)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC: b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC
+        join:
+          joinCondition: |
+            FROM {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT_POLICY_STAGING_EPIC') }} AS b,
+                 LATERAL FLATTEN(INPUT => PARSE_XML(b.SCREENDATA), PATH => 'Data/NonScheduled/Field') C
+            WHERE b.CDPOLICYLINETYPECODE <> '1CLI'
+        name: VW_TMP_SCREEN_DATA
+        noLinkRefs: []
+  name: VW_TMP_SCREEN_DATA
+  overrideSQL: false
+  schema: STAGING
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
