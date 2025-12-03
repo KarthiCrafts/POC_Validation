@@ -1,0 +1,146 @@
+fileVersion: 1
+id: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+name: DW_CLIENT_BENCHMARKING_CLIENT_SRC
+operation:
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  locationName: DBSHIFT
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7b9b35f1-c2d4-4e6f-9a0b-1c2d3e4f5a6b
+          stepCounter: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DW_CLIENT_BENCHMARKING_CLIENT_ID
+        nullable: false
+        primaryKey: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: true
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8c0c46a2-d3e5-4f7a-9b1c-2d3e4f5a6b7c
+          stepCounter: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_CLIENT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9d1d57b3-e4f6-4a8b-9c2d-3e4f5a6b7c8d
+          stepCounter: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SOURCE_SYSTEM_POLICY_LINE_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ae2e68c4-f5a7-4b9c-9d3e-4f5a6b7c8d9e
+          stepCounter: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf3f79d5-a6b8-4caD-9e4f-5a6b7c8d9e0f
+          stepCounter: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        name: DW_DATE_DELETED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1e38c48-c625-4c40-a587-565802397861
+          stepCounter: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b3b2e9ca-28a8-4800-8234-74c902ed36f7
+          stepCounter: 6a8a34e0-b1c3-4d5e-8f9a-0b1c2d3e4f5a
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: DW_CLIENT_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences: []
+        transform: ""
+        uniqueKey: false
+  name: DW_CLIENT_BENCHMARKING_CLIENT_SRC
+  overrideSQL: false
+  schema: DBO
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node
