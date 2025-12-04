@@ -605,7 +605,7 @@ operation:
           columnCounter: 6b7c8d9e-0f1a-2345-7890-123456789012
           stepCounter: 5979c3d9-a7e8-4b77-a859-930f30c904e1
         config: {}
-        dataType: NUMBER
+        dataType: VARCHAR
         defaultValue: ""
         description: ""
         name: IPO
@@ -1420,4 +1420,5 @@ operation:
   sqlType: Source
   type: sourceInput
   version: 1
+
 type: Node
