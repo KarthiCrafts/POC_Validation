@@ -1,0 +1,718 @@
+fileVersion: 1
+id: 593b487d-810a-4a25-83c3-30541d467771
+name: DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: |-
+      BEGIN
+      USE DATABASE ALLIANT_DW;
+      
+      -- Update existing allocation info
+      UPDATE ALLIANT_DW.DBO.DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM AS t
+      SET
+          t.DW_SOURCE_SYSTEM_ID = stg.DW_SOURCE_SYSTEM_ID,
+          t.DW_CLIENT_BENCHMARKING_CLIENT_ID = stg.DW_CLIENT_BENCHMARKING_CLIENT_ID,
+          t.DW_CLIENT_ID = stg.DW_CLIENT_ID,
+          t.DW_STRUCTURE_ID = stg.DW_STRUCTURE_ID,
+          t.DW_COMPANY_ID_PRIMARY = stg.DW_COMPANY_ID_PRIMARY,
+          t.DW_COMPANY_ID_AGGREGATE = stg.DW_COMPANY_ID_AGGREGATE,
+          t.CLIENT_BENCHMARKING_PROGRAM_TYPE_ID = stg.CLIENT_BENCHMARKING_PROGRAM_TYPE_ID,
+          t.PRIMARY_LIMIT = stg.PRIMARY_LIMIT,
+          t.PRIMARY_PREMIUM = stg.PRIMARY_PREMIUM,
+          t.PRIMARY_SIR_RETENTION = stg.PRIMARY_SIR_RETENTION,
+          t.PRIMARY_COMPANY_LOOKUP_CODE = stg.PRIMARY_COMPANY_LOOKUP_CODE,
+          t.AGGREGATE_LIMIT = stg.AGGREGATE_LIMIT,
+          t.AGGREGATE_PREMIUM = stg.AGGREGATE_PREMIUM,
+          t.AGGREGATE_SIR_RETENTION = stg.AGGREGATE_SIR_RETENTION,
+          t.AGGREGATE_COMPANY_LOOKUP_CODE = stg.AGGREGATE_COMPANY_LOOKUP_CODE,
+          t.SOURCE_SYSTEM_PRIMARY_LIMIT = stg.SOURCE_SYSTEM_PRIMARY_LIMIT,
+          t.SOURCE_SYSTEM_PRIMARY_PREMIUM = stg.SOURCE_SYSTEM_PRIMARY_PREMIUM,
+          t.SOURCE_SYSTEM_PRIMARY_SIR_RETENTION = stg.SOURCE_SYSTEM_PRIMARY_SIR_RETENTION,
+          t.SOURCE_SYSTEM_AGGREGATE_LIMIT = stg.SOURCE_SYSTEM_AGGREGATE_LIMIT,
+          t.SOURCE_SYSTEM_AGGREGATE_PREMIUM = stg.SOURCE_SYSTEM_AGGREGATE_PREMIUM,
+          t.SOURCE_SYSTEM_AGGREGATE_SIR_RETENTION = stg.SOURCE_SYSTEM_AGGREGATE_SIR_RETENTION,
+          t.SOURCE_SYSTEM_CLIENT_ID = stg.SOURCE_SYSTEM_CLIENT_ID,
+          t.SOURCE_SYSTEM_POLICY_ID = stg.SOURCE_SYSTEM_POLICY_ID,
+          t.SOURCE_SYSTEM_CUSTOM_FORM_SCREEN_ID = stg.SOURCE_SYSTEM_CUSTOM_FORM_SCREEN_ID,
+          t.DW_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          t.DW_UPDATE_USER = 'spdw_dw_client_benchmarking_client_program_insertUpdate'
+      FROM {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM_STAGING') }} AS stg
+      WHERE stg.SOURCE_SYSTEM_POLICY_LINE_ID = t.SOURCE_SYSTEM_POLICY_LINE_ID
+        AND t.PROGRAM_TYPE_KEY = stg.PROGRAM_TYPE_KEY
+        AND t.DW_DATE_CREATED <> CURRENT_TIMESTAMP()
+        AND (
+          IFNULL(stg.DW_SOURCE_SYSTEM_ID, -1) <> IFNULL(t.DW_SOURCE_SYSTEM_ID, -1)
+          OR IFNULL(stg.DW_CLIENT_BENCHMARKING_CLIENT_ID, -1) <> IFNULL(t.DW_CLIENT_BENCHMARKING_CLIENT_ID, -1)
+          OR IFNULL(stg.DW_CLIENT_ID, -1) <> IFNULL(t.DW_CLIENT_ID, -1)
+          OR IFNULL(stg.DW_STRUCTURE_ID, -1) <> IFNULL(t.DW_STRUCTURE_ID, -1)
+          OR IFNULL(stg.DW_COMPANY_ID_PRIMARY, -1) <> IFNULL(t.DW_COMPANY_ID_PRIMARY, -1)
+          OR IFNULL(stg.DW_COMPANY_ID_AGGREGATE, -1) <> IFNULL(t.DW_COMPANY_ID_AGGREGATE, -1)
+          OR IFNULL(stg.CLIENT_BENCHMARKING_PROGRAM_TYPE_ID, '-1') <> IFNULL(t.CLIENT_BENCHMARKING_PROGRAM_TYPE_ID, '-1')
+          OR IFNULL(stg.PRIMARY_LIMIT, -1) <> IFNULL(t.PRIMARY_LIMIT, -1)
+          OR IFNULL(stg.PRIMARY_PREMIUM, -1) <> IFNULL(t.PRIMARY_PREMIUM, -1)
+          OR IFNULL(stg.PRIMARY_SIR_RETENTION, -1) <> IFNULL(t.PRIMARY_SIR_RETENTION, -1)
+          OR IFNULL(stg.PRIMARY_COMPANY_LOOKUP_CODE, -1) <> IFNULL(t.PRIMARY_COMPANY_LOOKUP_CODE, -1)
+          OR IFNULL(stg.AGGREGATE_LIMIT, -1) <> IFNULL(t.AGGREGATE_LIMIT, -1)
+          OR IFNULL(stg.AGGREGATE_PREMIUM, -1) <> IFNULL(t.AGGREGATE_PREMIUM, -1)
+          OR IFNULL(stg.AGGREGATE_SIR_RETENTION, -1) <> IFNULL(t.AGGREGATE_SIR_RETENTION, -1)
+          OR IFNULL(stg.AGGREGATE_COMPANY_LOOKUP_CODE, -1) <> IFNULL(t.AGGREGATE_COMPANY_LOOKUP_CODE, -1)
+          OR IFNULL(stg.SOURCE_SYSTEM_PRIMARY_LIMIT, '-1') <> IFNULL(t.SOURCE_SYSTEM_PRIMARY_LIMIT, '-1')
+          OR IFNULL(stg.SOURCE_SYSTEM_PRIMARY_PREMIUM, '-1') <> IFNULL(t.SOURCE_SYSTEM_PRIMARY_PREMIUM, '-1')
+          OR IFNULL(stg.SOURCE_SYSTEM_PRIMARY_SIR_RETENTION, '-1') <> IFNULL(t.SOURCE_SYSTEM_PRIMARY_SIR_RETENTION, '-1')
+          OR IFNULL(stg.SOURCE_SYSTEM_AGGREGATE_LIMIT, '-1') <> IFNULL(t.SOURCE_SYSTEM_AGGREGATE_LIMIT, '-1')
+          OR IFNULL(stg.SOURCE_SYSTEM_AGGREGATE_PREMIUM, '-1') <> IFNULL(t.SOURCE_SYSTEM_AGGREGATE_PREMIUM, '-1')
+          OR IFNULL(stg.SOURCE_SYSTEM_AGGREGATE_SIR_RETENTION, '-1') <> IFNULL(t.SOURCE_SYSTEM_AGGREGATE_SIR_RETENTION, '-1')
+          OR IFNULL(stg.SOURCE_SYSTEM_CLIENT_ID, -1) <> IFNULL(t.SOURCE_SYSTEM_CLIENT_ID, -1)
+          OR IFNULL(stg.SOURCE_SYSTEM_POLICY_ID, -1) <> IFNULL(t.SOURCE_SYSTEM_POLICY_ID, -1)
+          OR IFNULL(stg.SOURCE_SYSTEM_CUSTOM_FORM_SCREEN_ID, -1) <> IFNULL(t.SOURCE_SYSTEM_CUSTOM_FORM_SCREEN_ID, -1)
+        );
+      
+      --Soft-delete if parent record is deleted
+      UPDATE ALLIANT_DW.DBO.DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM AS cbcp
+      SET DW_DATE_DELETED = CURRENT_TIMESTAMP(),
+          DW_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          DW_UPDATE_USER = 'spdw_dw_client_benchmarking_client_program_insertUpdate'
+      FROM {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT') }} AS cbc
+      WHERE cbc.SOURCE_SYSTEM_POLICY_LINE_ID = cbcp.SOURCE_SYSTEM_POLICY_LINE_ID
+        AND cbc.DW_DATE_DELETED IS NOT NULL
+        AND cbcp.DW_DATE_DELETED IS NULL;
+      
+      --Soft delete for records that are missing in staging table
+      UPDATE ALLIANT_DW.DBO.DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM AS cbcp
+      SET DW_DATE_DELETED = CURRENT_TIMESTAMP(),
+          DW_DATE_UPDATED = CURRENT_TIMESTAMP(),
+          DW_UPDATE_USER = 'spdw_dw_client_benchmarking_client_program_insertUpdate'
+      WHERE cbcp.DW_DATE_DELETED IS NULL
+        AND NOT EXISTS (
+            SELECT 1
+            FROM {{ ref('DBSHIFT', 'DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM_STAGING') }} AS cbcps
+            WHERE cbcps.PROGRAM_TYPE_KEY = cbcp.PROGRAM_TYPE_KEY
+              AND cbcps.SOURCE_SYSTEM_POLICY_LINE_ID = cbcp.SOURCE_SYSTEM_POLICY_LINE_ID
+        );
+      END;
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: false
+  database: ALLIANT_DW
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DBSHIFT
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58825838-8c1d-4050-a94f-f2fc4d76449d
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 77c5c2d3-8250-4d87-9b2f-981f3d328328
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3a5518b-80a2-4a0b-8d5c-9d66164d1c1a
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3266e9bd-6b04-4b53-a3d1-411fd0c6a8f1
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63b8417c-a0e4-4d1a-be29-d65298a01f70
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+        transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4213d289-53e9-4467-a42e-9d220ed20b22
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f593d6c7-3914-411a-85d1-47120a2e5d59
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a5f22ca8-a006-4b2a-89a5-8e4ab69e4fcd
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DW_SOURCE_SYSTEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2e9988d-e4c1-4b13-9a3d-c11dfc208c7c
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.DW_SOURCE_SYSTEM_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a15320-f571-417b-ab9f-22a83e059438
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DW_CLIENT_BENCHMARKING_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9aa42f7-7b3b-47e2-89cd-73e481b45281
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.DW_CLIENT_BENCHMARKING_CLIENT_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9c09a800-4749-43c3-b09e-71fc45f94b1a
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DW_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2a94622-c322-4a0b-9304-4e2a86c8fde0
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.DW_CLIENT_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b0c80b5-68dd-4b68-b328-36058e174b83
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DW_STRUCTURE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e43a1372-2d83-4a6c-b26a-8b8398e7bb67
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.DW_STRUCTURE_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e89a8785-5a50-482a-a92c-5645e054a0f4
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DW_COMPANY_ID_PRIMARY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d8616c6-9994-4d80-8774-06c8b9d8856a
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.DW_COMPANY_ID_PRIMARY
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c0a62391-7f93-45fe-8608-ac5634629739
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: DW_COMPANY_ID_AGGREGATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1475c742-ac63-4de7-920f-071c8413a968
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.DW_COMPANY_ID_AGGREGATE
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93e62241-b8d2-45e0-888e-c359d9c28e83
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CLIENT_BENCHMARKING_PROGRAM_TYPE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a33777f9-25f0-466d-8140-5e3e7f9a15c3
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.CLIENT_BENCHMARKING_PROGRAM_TYPE_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d1a89c31-6e1c-4395-8164-9b8823f360ae
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: PROGRAM_TYPE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ffd8a5df-d15f-4d43-9828-e4b52b2b1093
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.PROGRAM_TYPE_KEY
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d655931e-42c2-4752-9d3e-90e9e49c7161
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: PRIMARY_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d159679-b148-4235-862d-075e7a934446
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.PRIMARY_LIMIT
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed03a30c-f179-4d62-9578-83bb78939c39
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: PRIMARY_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 546f3453-61b9-4d76-8e5f-d2382c78a05e
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.PRIMARY_PREMIUM
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: caa4e21a-6d00-47b7-8798-ddb746c0ca48
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: PRIMARY_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d496a924-d2e5-4d0d-b283-e0708f370776
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.PRIMARY_SIR_RETENTION
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 322de3e9-a3cd-41e9-9150-14e4177d5bde
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: PRIMARY_COMPANY_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1f02170c-2646-4a4b-8e3b-5511b0bb53c4
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.PRIMARY_COMPANY_LOOKUP_CODE
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7e735d5e-d890-482a-a92a-b7e191a38cd1
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: AGGREGATE_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fd90b2b8-f076-477f-a6ac-256d0d2105e4
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.AGGREGATE_LIMIT
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0f2fef45-8178-43d8-a1e4-31f0de98f3b2
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: AGGREGATE_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d2e8113e-1f81-43fd-b209-158a798533c3
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.AGGREGATE_PREMIUM
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b1304918-a616-43b2-9214-72213e459bde
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: AGGREGATE_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2d3345d8-c70e-436f-b25b-017e8c07801a
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.AGGREGATE_SIR_RETENTION
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 18b7654a-e16e-4c07-b24e-4f7f6a7d1880
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: AGGREGATE_COMPANY_LOOKUP_CODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d769c3a3-deeb-4de4-8e10-94f715ac9054
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.AGGREGATE_COMPANY_LOOKUP_CODE
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 42163b2a-7157-41b9-8c6c-a25e197c385c
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_PRIMARY_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 32e65c92-36c5-430b-b18c-3c3e215f79fd
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_PRIMARY_LIMIT
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c3e80c6-304b-4fd5-8f6a-0498305c6e8e
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_PRIMARY_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f5152a55-1f9e-4e49-8b43-466a987d6928
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_PRIMARY_PREMIUM
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3266cf9b-e85d-450b-8d8a-6415f9f04505
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_PRIMARY_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5a95f9c1-5c68-4661-8f55-1e4a6a582b1c
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_PRIMARY_SIR_RETENTION
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c822a94f-f3b1-4f1e-924b-354316d9a0d8
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_AGGREGATE_LIMIT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0f3c64c8-3c37-4d64-82a1-6d0c64996962
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_AGGREGATE_LIMIT
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e06182a-ab07-4f4c-8f4b-74d75d697843
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_AGGREGATE_PREMIUM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a3a61d15-08e1-432d-8848-18e0018b3d6c
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_AGGREGATE_PREMIUM
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2d1469e3-2e4a-4720-9669-0268153443a5
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_AGGREGATE_SIR_RETENTION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a33e3d93-3d02-46d5-a388-72535041a02d
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_AGGREGATE_SIR_RETENTION
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b5c5e8c-8e4a-41f2-959c-64f331d2e132
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a49f99f3-8b7c-482a-8c26-6f81c9a6a8c5
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_CLIENT_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 32a937a8-b615-4307-8854-8c4391694f4c
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_POLICY_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 24f11463-b248-4c07-b64a-25039f046429
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_POLICY_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63e002c0-8d5f-4632-a5e0-82d1c618641a
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: SOURCE_SYSTEM_POLICY_LINE_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7e9a9a3-5c5f-4422-b529-6b5c3e6a9a7a
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_POLICY_LINE_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a63462f6-397a-4c22-90b1-12c5b0577d64
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: SOURCE_SYSTEM_CUSTOM_FORM_SCREEN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6479e0f3-9d0b-4d45-924b-3e5f22e8471c
+                stepCounter: 77a00f1c-3b95-4654-8c88-66171801c801
+            transform: STG.SOURCE_SYSTEM_CUSTOM_FORM_SCREEN_ID
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 63e034e3-6a9a-4c92-94b3-568e0d9b1c70
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_CREATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1f0e8f7a-8f4b-45b7-8d0a-9e1b2e3c4d5f
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_CREATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''spdw_dw_client_benchmarking_client_program_insertUpdate'''
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a24b7a2a-b0e2-45e0-82a1-6d0c64996962
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: DW_DATE_UPDATED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+        transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9e06182a-ab07-4f4c-8f4b-74d75d697843
+          stepCounter: 593b487d-810a-4a25-83c3-30541d467771
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DW_UPDATE_USER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: '''spdw_dw_client_benchmarking_client_program_insertUpdate'''
+        transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG: STG
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DBSHIFT
+            nodeName: STG_DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM_INSERT
+        join:
+          joinCondition: FROM {{ ref('DBSHIFT', 'STG_DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM_INSERT')
+            }} AS STG
+        name: DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM
+        noLinkRefs: []
+  name: DW_CLIENT_BENCHMARKING_CLIENT_PROGRAM
+  overrideSQL: false
+  schema: DBO
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node
